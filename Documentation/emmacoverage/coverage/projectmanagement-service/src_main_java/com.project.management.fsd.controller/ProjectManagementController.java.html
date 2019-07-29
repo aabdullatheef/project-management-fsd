@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>ProjectManagementController.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">projectmanagement-service (30 Jul, 2019 4:06:11 AM)</a> &gt; <a href="../../index.html" class="el_group">projectmanagement-service</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">com.project.management.fsd.controller</a> &gt; <span class="el_source">ProjectManagementController.java</span></div><h1>ProjectManagementController.java</h1><pre class="source lang-java linenums">package com.project.management.fsd.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.project.management.fsd.bo.ParentTaskVO;
+import com.project.management.fsd.bo.ProjectVO;
+import com.project.management.fsd.bo.TaskVO;
+import com.project.management.fsd.bo.UserVO;
+import com.project.management.fsd.service.ProjectManagementService;
+
+@CrossOrigin(origins = &quot;*&quot;, maxAge = 3600)
+@RestController
+public class ProjectManagementController {
+	
+	private ProjectManagementService projectManagerService;
+
+	@Autowired
+<span class="fc" id="L26">	public ProjectManagementController(ProjectManagementService projectManagerService) {</span>
+<span class="fc" id="L27">		this.projectManagerService = projectManagerService;</span>
+<span class="fc" id="L28">	}</span>
+
+	@GetMapping(&quot;/home&quot;)
+	public String home() {
+<span class="fc" id="L32">		return &quot;forward:/index.html&quot;;</span>
+	}
+	
+	
+	@GetMapping(&quot;/api/tasks&quot;)
+	public List&lt;TaskVO&gt; getTasks() {
+<span class="nc" id="L38">		List&lt;TaskVO&gt; tasks = projectManagerService.retriveTasks();</span>
+<span class="nc" id="L39">		return tasks;</span>
+	}
+	
+	@PostMapping(path = &quot;/api/tasks&quot;, consumes = &quot;application/json&quot;, produces = &quot;application/json&quot;)
+	public boolean updateTask(@RequestBody TaskVO task) {
+		try {
+<span class="nc" id="L45">			projectManagerService.updateTask(task); </span>
+<span class="nc" id="L46">		}catch(Exception e)</span>
+		{
+<span class="nc" id="L48">			return false;</span>
+		}
+<span class="nc" id="L50">		return true;</span>
+	}
+	
+	
+	@GetMapping(&quot;/api/parenttasks&quot;)
+	public List&lt;ParentTaskVO&gt; getAllParentTasks() {
+<span class="nc" id="L56">		List&lt;ParentTaskVO&gt; tasks = projectManagerService.retriveParentTasks();</span>
+<span class="nc" id="L57">		return tasks;</span>
+	}
+	
+	@GetMapping(&quot;/api/parenttasks/projects/{projectId}&quot;)
+	public List&lt;ParentTaskVO&gt; getParentTasksForProjectId(@PathVariable(name=&quot;projectId&quot;) String projectId) {
+<span class="nc" id="L62">		List&lt;ParentTaskVO&gt; tasks = projectManagerService.retriveParentTasksForProjectId(projectId); </span>
+<span class="nc" id="L63">		return tasks;</span>
+	}
+	
+	@PostMapping(path = &quot;/api/parenttasks&quot;, consumes = &quot;application/json&quot;, produces = &quot;application/json&quot;)
+	public boolean updateParentTask(@RequestBody ParentTaskVO parentTask) {
+		try {
+<span class="nc" id="L69">			projectManagerService.updateParentTask(parentTask);</span>
+<span class="nc" id="L70">		}catch(Exception e)</span>
+		{
+<span class="nc" id="L72">			return false;</span>
+		}
+<span class="nc" id="L74">		return true;</span>
+	}
+	
+	
+	@GetMapping(&quot;/api/projects&quot;)
+	public List&lt;ProjectVO&gt; getProjects() {
+<span class="nc" id="L80">		List&lt;ProjectVO&gt; projects = projectManagerService.retriveProjects();</span>
+<span class="nc" id="L81">		return projects;</span>
+	}
+	
+	@PostMapping(path = &quot;/api/projects&quot;, consumes = &quot;application/json&quot;, produces = &quot;application/json&quot;)
+	public boolean updateProject(@RequestBody ProjectVO project) {
+		try {
+<span class="nc" id="L87">			projectManagerService.updateProject(project);</span>
+<span class="nc" id="L88">		}catch(Exception e)</span>
+		{
+<span class="nc" id="L90">			return false;</span>
+		}
+<span class="nc" id="L92">		return true;</span>
+	}
+	
+	
+	@GetMapping(&quot;/api/users&quot;)
+	public List&lt;UserVO&gt; getUsers() {
+<span class="nc" id="L98">		List&lt;UserVO&gt; users = projectManagerService.retriveUsers();</span>
+<span class="nc" id="L99">		return users;</span>
+	}
+	
+	@PostMapping(path = &quot;/api/users&quot;, consumes = &quot;application/json&quot;, produces = &quot;application/json&quot;)
+	public boolean updateUsers(@RequestBody UserVO user) {
+		try {
+<span class="nc" id="L105">			projectManagerService.updateUser(user);</span>
+<span class="nc" id="L106">		}catch(Exception e)</span>
+		{
+<span class="nc" id="L108">			return false;</span>
+		}
+<span class="nc" id="L110">		return true;</span>
+	}
+	
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>projectmanagement-service (30 Jul, 2019 4:06:11 AM)</div></body></html>

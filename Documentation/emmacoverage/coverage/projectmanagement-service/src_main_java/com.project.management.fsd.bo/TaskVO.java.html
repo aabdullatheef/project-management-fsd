@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>TaskVO.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">projectmanagement-service (30 Jul, 2019 4:06:11 AM)</a> &gt; <a href="../../index.html" class="el_group">projectmanagement-service</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">com.project.management.fsd.bo</a> &gt; <span class="el_source">TaskVO.java</span></div><h1>TaskVO.java</h1><pre class="source lang-java linenums">package com.project.management.fsd.bo;
+
+
+<span class="nc" id="L4">public class TaskVO {</span>
+	private Long taskId;
+	private String taskName;
+	private String startDate;
+	private String endDate;
+	private String priority;
+	private String status;
+	private ParentTaskVO parentTask;
+	private UserVO employeeDetails;
+	private ProjectVO projectDetails;
+
+	/**
+	 * 
+	 * @return
+	 */
+	public Long getTaskId() {
+<span class="nc" id="L20">		return taskId;</span>
+	}
+
+	/**
+	 * 
+	 * @param taskId
+	 */
+	public void setTaskId(Long taskId) {
+<span class="nc" id="L28">		this.taskId = taskId;</span>
+<span class="nc" id="L29">	}</span>
+
+	/**
+	 * 
+	 * @return
+	 */
+	public String getTaskName() {
+<span class="nc" id="L36">		return taskName;</span>
+	}
+
+	/**
+	 * 
+	 * @param taskName
+	 */
+	public void setTaskName(String taskName) {
+<span class="nc" id="L44">		this.taskName = taskName;</span>
+<span class="nc" id="L45">	}</span>
+
+	/**
+	 * 
+	 * @return
+	 */
+	public String getStartDate() {
+<span class="nc" id="L52">		return startDate;</span>
+	}
+
+	/**
+	 * 
+	 * @param startDate
+	 */
+	public void setStartDate(String startDate) {
+<span class="nc" id="L60">		this.startDate = startDate;</span>
+<span class="nc" id="L61">	}</span>
+
+	/**
+	 * 
+	 * @return
+	 */
+	public String getEndDate() {
+<span class="nc" id="L68">		return endDate;</span>
+	}
+
+	/**
+	 * 
+	 * @param endDate
+	 */
+	public void setEndDate(String endDate) {
+<span class="nc" id="L76">		this.endDate = endDate;</span>
+<span class="nc" id="L77">	}</span>
+
+	/**
+	 * 
+	 * @return
+	 */
+	public String getPriority() {
+<span class="nc" id="L84">		return priority;</span>
+	}
+
+	/**
+	 * 
+	 * @param priority
+	 */
+	public void setPriority(String priority) {
+<span class="nc" id="L92">		this.priority = priority;</span>
+<span class="nc" id="L93">	}</span>
+	
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String getStatus() {
+<span class="nc" id="L101">		return status;</span>
+	}
+
+	/**
+	 * 
+	 * @param status
+	 */
+	public void setStatus(String status) {
+<span class="nc" id="L109">		this.status = status;</span>
+<span class="nc" id="L110">	}</span>
+
+	/**
+	 * 
+	 * @return
+	 */
+	public ParentTaskVO getParentTask() {
+<span class="nc" id="L117">		return parentTask;</span>
+	}
+
+	/**
+	 * 
+	 * @param parentTask
+	 */
+	public void setParentTask(ParentTaskVO parentTask) {
+<span class="nc" id="L125">		this.parentTask = parentTask;</span>
+<span class="nc" id="L126">	}</span>
+
+	/**
+	 * 
+	 * @return
+	 */
+	public UserVO getEmployeeDetails() {
+<span class="nc" id="L133">		return employeeDetails;</span>
+	}
+
+	/**
+	 * 
+	 * @param employeeDetails
+	 */
+	public void setEmployeeDetails(UserVO employeeDetails) {
+<span class="nc" id="L141">		this.employeeDetails = employeeDetails;</span>
+<span class="nc" id="L142">	}</span>
+
+	/**
+	 * 
+	 * @return
+	 */
+	public ProjectVO getProjectDetails() {
+<span class="nc" id="L149">		return projectDetails;</span>
+	}
+
+	/**
+	 * 
+	 * @param projectDetails
+	 */
+	public void setProjectDetails(ProjectVO projectDetails) {
+<span class="nc" id="L157">		this.projectDetails = projectDetails;</span>
+<span class="nc" id="L158">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>projectmanagement-service (30 Jul, 2019 4:06:11 AM)</div></body></html>
