@@ -1,0 +1,17 @@
+com\project\management\fsd\repository\UserManagerRepository.class
+com\project\management\fsd\entity\User.class
+com\project\management\fsd\Application.class
+com\project\management\fsd\service\ProjectManagementService.class
+com\project\management\fsd\repository\TaskManagerRepository.class
+com\project\management\fsd\bo\ProjectVO.class
+com\project\management\fsd\entity\Project.class
+com\project\management\fsd\bo\UserVO.class
+com\project\management\fsd\service\impl\ProjectManagementServiceImpl.class
+com\project\management\fsd\repository\ProjectManagerRepository.class
+com\project\management\fsd\bo\ParentTaskVO.class
+com\project\management\fsd\entity\Task.class
+com\project\management\fsd\controller\ProjectManagementController.class
+com\project\management\fsd\bo\TaskVO.class
+com\project\management\fsd\entity\ParentTask.class
+com\project\management\fsd\filter\CORSFilter.class
+com\project\management\fsd\repository\ParentTaskManagerRepository.class
