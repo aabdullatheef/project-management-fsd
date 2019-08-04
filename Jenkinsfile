@@ -1,9 +1,5 @@
 pipeline {
     agent any
-    tools {
-        maven 'maven'
-        jdk 'JAVA-jdk'
-    }
     stages {
         stage ('Initialize-Variables') {
             steps {
