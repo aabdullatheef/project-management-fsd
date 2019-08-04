@@ -20,7 +20,7 @@ pipeline {
         }
         stage ('Docker-Build') {
             steps {
-                    bat 'cd projectmanagement-service && mvn package docker:build'
+                    bat 'cd projectmanagement-service && mvn package -DskipTests=true docker:build'
             }
         }
     }
