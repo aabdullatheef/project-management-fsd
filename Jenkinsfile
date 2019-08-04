@@ -15,7 +15,7 @@ pipeline {
         }
         stage ('Build') {
             steps {
-                    bat 'mvn install'
+                    bat 'mvn install -DskipTests=true'
             }
         }
         stage ('Docker-Build') {
