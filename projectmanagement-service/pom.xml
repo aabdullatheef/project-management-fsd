@@ -127,7 +127,7 @@
 				<configuration>
 					<dockerHost>http://172.18.2.50:2375</dockerHost>
 					<repository>abdul09/projectmanagement-application</repository>
-					<imageName>abdul09/nawapatel-projectmanagement-application-image</imageName>
+					<imageName>abdul09/abdul09-projectmanagement-application-image</imageName>
 					<tag>${project.version}</tag>
 					<dockerDirectory>docker</dockerDirectory>
 					<resources>
