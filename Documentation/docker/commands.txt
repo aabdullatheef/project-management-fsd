@@ -1,0 +1,23 @@
+Steps to create container in docker and verify the project is deployed:
+-----------------------------------------------------------------------
+
+Create docker accout if you dont have a Docker ID.
+
+docker -H=172.18.2.50:2375 login
+Provide login credentials (Docker ID)
+
+docker run -p 9081:9081 abdul09/abdul09-projectmanagement-application-image:latest
+
+dockerx create --name "projectManagementContainer" abdul09/abdul09-projectmanagement-application-image
+
+dockerx start --attach "projectManagementContainer"
+
+docker -H=172.18.2.50:2375 start --attach "projectManagementContainer"
+
+docker exec -it "projectManagementContainer" sh
+
+TO verify UI is deployed
+curl http://localhost:9081/index.html
+
+TO verify service is deployed
+curl http://localhost:9081/api/tasks

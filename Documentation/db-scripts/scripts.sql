@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.11, for Win32 (x86)
 --
 -- Host: localhost    Database: projectmanager
 -- ------------------------------------------------------
@@ -29,7 +29,7 @@ CREATE TABLE `parent_tasks` (
   PRIMARY KEY (`parent_task_id`),
   KEY `FK_PARENT_TASKS` (`project_id`),
   CONSTRAINT `FK_PARENT_TASKS` FOREIGN KEY (`project_id`) REFERENCES `projects` (`project_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `parent_tasks` (
 
 LOCK TABLES `parent_tasks` WRITE;
 /*!40000 ALTER TABLE `parent_tasks` DISABLE KEYS */;
-INSERT INTO `parent_tasks` VALUES (1,'pt create screens',1),(2,'pt design database scripts',2),(3,'pt raise clarifications',3),(4,'AGMS',4);
+INSERT INTO `parent_tasks` VALUES (1,'pt create screens',1),(2,'pt design database scripts',2),(3,'pt raise clarifications',3),(4,'AGMS',4),(5,'Data API services',4),(6,'Upgrade to Node 8',1),(7,'Angular 8 upgrade',1),(8,'UI Components',7);
 /*!40000 ALTER TABLE `parent_tasks` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -60,7 +60,7 @@ CREATE TABLE `projects` (
   PRIMARY KEY (`project_id`),
   KEY `FK_PROJECTS_MANAGER_ID` (`manager_id`),
   CONSTRAINT `FK_PROJECTS_MANAGER_ID` FOREIGN KEY (`manager_id`) REFERENCES `users` (`employee_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +69,7 @@ CREATE TABLE `projects` (
 
 LOCK TABLES `projects` WRITE;
 /*!40000 ALTER TABLE `projects` DISABLE KEYS */;
-INSERT INTO `projects` VALUES (1,'SOA','11/20/2018','11/30/2018','15','Completed','377248'),(2,'IAS','11/21/2018','11/29/2018','17','In-Progress','377248'),(3,'ITS Blue2','11/19/2018','11/29/2018','20','Completed','428398'),(4,'API Dev Factory','7/30/2019','12/31/2019','30','In-Progress','200000');
+INSERT INTO `projects` VALUES (1,'Market Place','07/01/2019','08/01/2019','15','Completed','377248'),(2,'DA Spec Extractor','08/01/2019','08/30/2019','17','In-Progress','377248'),(3,'API Store','07/01/2019','12/31/2019','20','Completed','428398'),(4,'API Dev Factory','7/30/2019','12/31/2019','30','In-Progress','200000'),(5,'Data Store','9/1/2019','12/31/2019','25','In-Progress','123123'),(6,'Add Project','9/1/2019','9/30/2019','8','In-Progress','100000'),(7,'React Application Development','10/1/2019','10/31/2019','3','In-Progress','212121');
 /*!40000 ALTER TABLE `projects` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -97,7 +97,7 @@ CREATE TABLE `tasks` (
   CONSTRAINT `FK_TASKS_EI` FOREIGN KEY (`employee_id`) REFERENCES `users` (`employee_id`),
   CONSTRAINT `FK_TASKS_PI` FOREIGN KEY (`project_id`) REFERENCES `projects` (`project_id`),
   CONSTRAINT `FK_TASKS_PT` FOREIGN KEY (`parent_task_id`) REFERENCES `parent_tasks` (`parent_task_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -106,7 +106,7 @@ CREATE TABLE `tasks` (
 
 LOCK TABLES `tasks` WRITE;
 /*!40000 ALTER TABLE `tasks` DISABLE KEYS */;
-INSERT INTO `tasks` VALUES (23,'generate report of tasks',1,'428398','11/01/2018','11/10/2018','15','A',1),(24,'complete the go perform',2,'377248','11/11/2018','11/12/2018','30','A',2),(25,'sent artifacts email',3,'428398','11/11/2018','11/13/2018','1','A',3),(27,'perform unit testing',NULL,'377248','11/17/2018','11/19/2018','26','A',1),(29,'Report 1',4,'451083','7/30/2019','8/10/2019','15','A',4);
+INSERT INTO `tasks` VALUES (30,'Implement POST/GET call API',5,'200000','9/1/2019','9/30/2019','30','A',4),(31,'Process Ingestion',4,'450000','8/11/2019','8/31/2019','24','A',4),(32,'Report Generation',4,'121212','9/1/2019','9/30/2019','15','A',4),(33,'Install node8',6,'404507','8/27/2019','8/31/2019','15','C',1),(34,'Install angularcli 8',7,'100000','9/3/2019','9/14/2019','15','A',1),(35,'React components',8,'377248','1/1/2020','1/31/2020','20','A',7);
 /*!40000 ALTER TABLE `tasks` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -132,7 +132,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('100000','Afsheen','Abdul Latheef','A'),('121212','Smith','Steve','A'),('200000','Suhail','Abdul Latheef','A'),('377248','Nawap','Patel','A'),('404507','Rajesh','Adhikesavan','A'),('428398','Siraj','Mohammed','A'),('450000','Yasmin','B','A'),('451083','Abdul','Latheef','A');
+INSERT INTO `users` VALUES ('100000','Afsheen','Abdul Latheef','A'),('121212','Smith','Steve','A'),('123123','Smitha','Prasad','A'),('200000','Suhail','Abdul Latheef','A'),('212121','Test First Name','Last Name Test','A'),('377248','John','Mathew','A'),('404507','Alan','King','A'),('428398','Greg','Traugy','A'),('450000','Yasmin','B','A'),('451083','Abdul','Latheef','A'),('454545','afsdfdasdf','sdaf','A');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -145,4 +145,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-08-04 22:28:17
+-- Dump completed on 2019-08-07 11:57:51
